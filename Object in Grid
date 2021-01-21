@@ -1,0 +1,8 @@
+Liste = [[name, längengrad, breitengrad][]]
+def get_objekt (name, längengrad, breitengrad)
+  output = []
+  for part in liste:
+    if part[1] < längengrad[0] and part[1] > längengrad[1]
+      if part[2] < breitengrad[0] and part[2] > breitengrad[1]
+        output.append(part)
+  return out 
