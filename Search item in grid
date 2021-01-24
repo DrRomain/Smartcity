@@ -1,0 +1,41 @@
+import pandas as pd 
+
+# Read excelfile and transform to list 
+
+def read(path): 
+    
+    liste = pd.read_excel(path)
+    new_list = []
+    length = len(liste['Name'].tolist())
+
+    for a in range(length):
+        name = liste['Name'].tolist()[a]
+        lon = liste['Longitude'].tolist()[a]
+        lat = liste['Latitude'].tolist()[a]
+        new_list.append([name,lon,lat])
+    return new_list
+
+# Search the elements that are in the grid
+
+def grid(liste, longitude, latitude):
+    
+    output=[]
+
+    for part in liste:
+        if part[1] > longitude[0] and part[1] < longitude[1]:
+            if part[2] > latitude[0] and part [2] < latitude[1]: 
+                output.append(part)
+    return output
+
+liste = read("Text Lon Lat.xlsx")
+
+#longitude 
+X=600000
+Y=700000
+
+#latidude
+A=5000000
+B=6000000
+
+grid = grid(liste, [X, Y], [A, B])
+print(grid)
